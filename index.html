@@ -1,4 +1,13 @@
+from pathlib import Path
+from zipfile import ZipFile
+import shutil
 
+out = Path("/mnt/data/1xbet_worldcup_auto_no_button")
+if out.exists():
+    shutil.rmtree(out)
+out.mkdir()
+
+html = """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -23,8 +32,7 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans
 .section{padding:70px 20px;max-width:1250px;margin:auto}
 .title{text-align:center;font-size:36px;font-weight:900;margin-bottom:38px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.card{background:#111827;padding:32px;border-radius:24px;border:1px solid rgba(255,255,255,.08);transition:.2s}
-.card:hover{transform:translateY(-4px)}
+.card{background:#111827;padding:32px;border-radius:24px;border:1px solid rgba(255,255,255,.08)}
 .card h3{margin-top:0;font-size:24px}
 .card p{opacity:.86;line-height:1.9}
 .footer{padding:45px 20px;text-align:center;opacity:.65;font-size:14px}
@@ -32,41 +40,95 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans
 </style>
 </head>
 <body>
+
 <div class="hero">
 <div class="container">
-<div class="worldcup">🏆 WORLD CUP SPORTS EDITION</div>
+
+<div class="worldcup" data-cn="🏆 WORLD CUP SPORTS EDITION" data-tw="🏆 WORLD CUP SPORTS EDITION">🏆 WORLD CUP SPORTS EDITION</div>
+
 <div class="logo">1xBet</div>
-<div class="tag">⚽ 首存立送 130%</div>
-<div class="desc">世界杯体育娱乐平台<br>支持足球、篮球、电竞、真人娱乐等热门玩法</div>
-<div class="btns">
-<a class="btn main" href="https://www.1xtw.org" target="_blank">立即注册领取福利</a>
-<a class="btn sub" href="https://t.me/baijiale8886669" target="_blank">进入福利频道</a>
+
+<div class="tag" data-cn="⚽ 首存立送 130%" data-tw="⚽ 首存立送 130%">⚽ 首存立送 130%</div>
+
+<div class="desc">
+<span data-cn="世界杯体育娱乐平台" data-tw="世界杯體育娛樂平台">世界杯體育娛樂平台</span><br>
+<span data-cn="支持足球、篮球、电竞、真人娱乐等热门玩法" data-tw="支持足球、籃球、電競、真人娛樂等熱門玩法">支持足球、籃球、電競、真人娛樂等熱門玩法</span>
 </div>
+
+<div class="btns">
+<a class="btn main" href="https://www.1xtw.org" target="_blank" data-cn="立即注册领取福利" data-tw="立即註冊領取福利">立即註冊領取福利</a>
+<a class="btn sub" href="https://t.me/baijiale8886669" target="_blank" data-cn="进入福利频道" data-tw="進入福利頻道">進入福利頻道</a>
+</div>
+
 <div class="notice">
-📌 中国大陆地区注册流程：<br>
+<span data-cn="📌 中国大陆地区注册流程：" data-tw="📌 中國大陸地區註冊流程：">📌 中國大陸地區註冊流程：</span><br>
 <a href="https://t.me/bc88855/2194" target="_blank">https://t.me/bc88855/2194</a>
 <br><br>
-🍎 苹果手机用户下载 APP：<br>
-使用哥伦比亚 Apple ID 下载<br>
-领取账号联系：@cz11888
+<span data-cn="🍎 苹果手机用户下载 APP：" data-tw="🍎 蘋果手機用戶下載 APP：">🍎 蘋果手機用戶下載 APP：</span><br>
+<span data-cn="使用哥伦比亚 Apple ID 下载" data-tw="使用哥倫比亞 Apple ID 下載">使用哥倫比亞 Apple ID 下載</span><br>
+<span data-cn="领取账号联系：@cz11888" data-tw="領取帳號聯繫：@cz11888">領取帳號聯繫：@cz11888</span>
+</div>
+
 </div>
 </div>
-</div>
+
 <div class="section">
-<div class="title">平台特色</div>
+<div class="title" data-cn="平台特色" data-tw="平台特色">平台特色</div>
+
 <div class="cards">
-<div class="card"><h3>🏆 世界杯赛事</h3><p>覆盖世界杯、五大联赛、欧冠等热门体育赛事</p></div>
-<div class="card"><h3>⚽ 体育竞猜</h3><p>支持足球、篮球、电竞、网球等实时赛事玩法</p></div>
-<div class="card"><h3>📱 移动端适配</h3><p>全面支持 iPhone 与 Android 手机访问</p></div>
-<div class="card"><h3>🎁 专属福利</h3><p>每日更新返水、限时活动与专属优惠福利</p></div>
+<div class="card">
+<h3 data-cn="🏆 世界杯赛事" data-tw="🏆 世界杯賽事">🏆 世界杯賽事</h3>
+<p data-cn="覆盖世界杯、五大联赛、欧冠等热门体育赛事" data-tw="覆蓋世界杯、五大聯賽、歐冠等熱門體育賽事">覆蓋世界杯、五大聯賽、歐冠等熱門體育賽事</p>
+</div>
+
+<div class="card">
+<h3 data-cn="⚽ 体育竞猜" data-tw="⚽ 體育競猜">⚽ 體育競猜</h3>
+<p data-cn="支持足球、篮球、电竞、网球等实时赛事玩法" data-tw="支持足球、籃球、電競、網球等即時賽事玩法">支持足球、籃球、電競、網球等即時賽事玩法</p>
+</div>
+
+<div class="card">
+<h3 data-cn="📱 移动端适配" data-tw="📱 移動端適配">📱 移動端適配</h3>
+<p data-cn="全面支持 iPhone 与 Android 手机访问" data-tw="全面支持 iPhone 與 Android 手機訪問">全面支持 iPhone 與 Android 手機訪問</p>
+</div>
+
+<div class="card">
+<h3 data-cn="🎁 专属福利" data-tw="🎁 專屬福利">🎁 專屬福利</h3>
+<p data-cn="每日更新返水、限时活动与专属优惠福利" data-tw="每日更新返水、限時活動與專屬優惠福利">每日更新返水、限時活動與專屬優惠福利</p>
 </div>
 </div>
+</div>
+
 <div class="footer">© 2026 1xBet World Cup Edition</div>
+
+<script>
+function setLang(lang){
+document.querySelectorAll("[data-cn]").forEach(function(el){
+el.textContent = el.getAttribute("data-" + lang);
+});
+document.documentElement.lang = lang === "cn" ? "zh-CN" : "zh-TW";
+}
+
+function autoLang(){
+var langs = navigator.languages ? navigator.languages.join(",").toLowerCase() : (navigator.language || "").toLowerCase();
+
+if(langs.includes("zh-cn") || langs.includes("zh-hans")){
+setLang("cn");
+}else{
+setLang("tw");
+}
+}
+
+autoLang();
+</script>
+
 </body>
 </html>
 """
+
 (out / "index.html").write_text(html, encoding="utf-8")
-zip_path = "/mnt/data/1xbet_worldcup_notice_center.zip"
+
+zip_path = "/mnt/data/1xbet_worldcup_auto_no_button.zip"
 with ZipFile(zip_path, "w") as z:
     z.write(out / "index.html", "index.html")
+
 print(zip_path)
