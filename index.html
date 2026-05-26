@@ -114,12 +114,3 @@ autoLang();
 
 </body>
 </html>
-"""
-
-(out / "index.html").write_text(html, encoding="utf-8")
-
-zip_path = "/mnt/data/1xbet_worldcup_auto_no_button.zip"
-with ZipFile(zip_path, "w") as z:
-    z.write(out / "index.html", "index.html")
-
-print(zip_path)
