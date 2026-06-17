@@ -1,0 +1,596 @@
+[index.html](https://github.com/user-attachments/files/29038015/index.html)
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>1xBet 繁體中文體育賽事入口</title>
+<meta name="description" content="1xBet 繁體中文體育賽事入口，每日熱門體育賽事資訊，新會員專屬福利，支援足球、棒球、籃球與電競。">
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#041225;
+  --deep:#061a35;
+  --panel:#09264b;
+  --panel2:#061b37;
+  --line:rgba(91,174,255,.28);
+  --blue:#0e95ff;
+  --blue2:#095bb7;
+  --gold:#f7c948;
+  --gold2:#ffdc75;
+  --text:#fff;
+  --muted:rgba(255,255,255,.76);
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% -18%,rgba(20,126,255,.42),transparent 44%),
+    linear-gradient(180deg,#061a35 0%,#041225 48%,#020814 100%);
+}
+a{text-decoration:none;color:inherit}
+.page{min-height:100vh;overflow:hidden}
+
+/* top */
+.nav{
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 44px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(3,12,28,.82);
+  backdrop-filter:blur(14px);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+.logo{
+  font-weight:950;
+  font-size:36px;
+  letter-spacing:-2px;
+}
+.logo span:first-child{color:#fff}
+.logo span:last-child{color:#20a8ff;font-style:italic}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  color:rgba(255,255,255,.88);
+  font-size:14px;
+  font-weight:800;
+}
+.nav-right a{white-space:nowrap}
+
+/* hero */
+.hero{
+  position:relative;
+  min-height:635px;
+  padding:72px 44px 56px;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(2,11,27,.94),rgba(6,26,55,.78) 52%,rgba(2,11,27,.48)),
+    radial-gradient(circle at 75% 36%,rgba(18,143,255,.45),transparent 32%);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 78% 16%,rgba(255,255,255,.85) 0 2px,transparent 3px),
+    radial-gradient(circle at 84% 13%,rgba(255,255,255,.65) 0 2px,transparent 3px),
+    linear-gradient(105deg,transparent 0 50%,rgba(255,255,255,.13) 52%,transparent 58%),
+    linear-gradient(180deg,transparent 0 70%,rgba(36,117,47,.42) 71%,rgba(10,67,31,.88) 100%);
+  opacity:.92;
+  pointer-events:none;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  left:-8%;
+  right:-8%;
+  bottom:-30px;
+  height:165px;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 92px),
+    linear-gradient(180deg,rgba(51,142,48,.25),rgba(15,82,37,.92));
+  transform:skewY(-1.4deg);
+  transform-origin:bottom left;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.04fr .96fr;
+  gap:34px;
+  align-items:center;
+}
+.hero h1{
+  margin:0;
+  font-size:64px;
+  line-height:1.08;
+  letter-spacing:-1.4px;
+}
+.hero h1 strong{color:var(--gold2)}
+.sports-line{
+  margin:24px 0 8px;
+  font-size:26px;
+  font-weight:900;
+  color:rgba(255,255,255,.94);
+}
+.subline{
+  font-size:24px;
+  font-weight:900;
+  color:rgba(255,255,255,.94);
+}
+.subline strong{
+  color:var(--gold2);
+  font-size:36px;
+  padding:0 5px;
+}
+.bonus-wrap{margin-top:24px}
+.bonus-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--gold2),#f3b52c);
+  color:#172033;
+  font-weight:950;
+  font-size:18px;
+}
+.bonus-main{
+  margin-top:16px;
+  font-size:29px;
+  font-weight:950;
+}
+.bonus-main strong{
+  color:var(--gold2);
+  font-size:54px;
+  margin-left:8px;
+}
+.cta-row{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+.btn{
+  min-height:58px;
+  min-width:225px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:0 26px;
+  border-radius:14px;
+  font-weight:950;
+  font-size:18px;
+  border:1px solid rgba(255,255,255,.12);
+}
+.btn.gold{
+  color:#111827;
+  background:linear-gradient(135deg,#ffe58a,#f4b72f);
+  box-shadow:0 14px 30px rgba(247,201,72,.25);
+}
+.btn.blue{
+  color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  box-shadow:0 14px 30px rgba(14,149,255,.22);
+}
+.hero-visual{
+  position:relative;
+  min-height:410px;
+}
+.ball{
+  position:absolute;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 30px 55px rgba(0,0,0,.42);
+}
+.soccer{width:210px;height:210px;right:218px;top:115px;background:#fff;font-size:106px}
+.baseball{width:126px;height:126px;right:86px;top:95px;background:#fff;color:#be123c;font-size:63px}
+.basket{width:172px;height:172px;right:92px;top:248px;background:radial-gradient(circle at 30% 22%,#ffb569,#d86521 62%,#8b300e);font-size:82px}
+.controller{
+  position:absolute;
+  right:4px;
+  top:310px;
+  width:154px;
+  height:88px;
+  border-radius:30px;
+  background:linear-gradient(145deg,#1c2738,#070b12);
+  box-shadow:0 24px 42px rgba(0,0,0,.42);
+}
+.controller::before{content:"✚";position:absolute;left:26px;top:30px;color:#c9d4e8;font-size:24px}
+.controller::after{content:"● ●";position:absolute;right:25px;top:30px;color:#2aa8ff;font-size:24px;letter-spacing:8px}
+
+/* sections */
+.wrap{max-width:1180px;margin:0 auto}
+.cards-section{
+  position:relative;
+  z-index:4;
+  margin-top:-20px;
+  padding:0 28px 38px;
+}
+.sport-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.sport-card{
+  min-height:190px;
+  padding:25px 18px;
+  border-radius:18px;
+  background:
+    linear-gradient(180deg,rgba(12,51,96,.96),rgba(5,24,49,.96)),
+    radial-gradient(circle at 50% 100%,rgba(47,157,255,.24),transparent 52%);
+  border:1px solid rgba(91,174,255,.32);
+  text-align:center;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+.sport-icon{
+  width:72px;height:72px;border-radius:50%;
+  margin:0 auto 15px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(247,201,72,.10);
+  border:2px solid rgba(247,201,72,.72);
+  font-size:38px;
+}
+.sport-card h3{margin:0 0 9px;font-size:24px}
+.sport-card p{margin:0;color:rgba(255,255,255,.82);font-weight:700;line-height:1.65}
+
+.panel{
+  border-radius:18px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(10,47,91,.86),rgba(5,26,55,.86));
+  box-shadow:0 18px 40px rgba(0,0,0,.20);
+}
+.features{
+  margin:0 28px 24px;
+  padding:28px;
+}
+.panel-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:950;
+  margin:0 0 22px;
+}
+.feature-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.feature{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:8px 12px;
+}
+.feature .ico{
+  flex:0 0 58px;
+  width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(247,201,72,.68);
+  color:var(--gold);
+  font-size:27px;
+}
+.feature h4{margin:0 0 4px;font-size:20px}
+.feature p{margin:0;color:var(--muted);line-height:1.55}
+
+.promo{
+  margin:0 28px 28px;
+  padding:26px 34px;
+  display:grid;
+  grid-template-columns:150px 1fr auto;
+  gap:24px;
+  align-items:center;
+  border-radius:18px;
+  background:linear-gradient(90deg,rgba(9,50,101,.96),rgba(5,27,58,.96));
+  border:1px solid rgba(91,174,255,.34);
+}
+.gift{
+  width:130px;height:105px;border-radius:22px;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 42%,rgba(255,215,95,.22),transparent 62%);
+  font-size:82px;
+}
+.promo h3{margin:0 0 8px;font-size:34px;color:var(--gold2)}
+.promo p{margin:0;font-size:22px;font-weight:850}
+.promo small{display:block;margin-top:8px;color:var(--muted);font-size:16px;font-weight:700}
+
+.steps{margin:0 28px 30px}
+.step-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.step{
+  position:relative;
+  min-height:142px;
+  padding:21px 18px;
+  border-radius:16px;
+  background:rgba(10,47,91,.80);
+  border:1px solid rgba(91,174,255,.30);
+}
+.num{
+  position:absolute;top:15px;left:15px;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(247,201,72,.72);
+  color:var(--gold2);
+  font-weight:950;
+}
+.step h4{margin:35px 0 7px;font-size:21px;text-align:center}
+.step p{margin:0;color:var(--muted);line-height:1.6;text-align:center}
+.tutorial{
+  display:block;
+  width:max-content;
+  margin:18px auto 0;
+  color:#3fb8ff;
+  font-weight:900;
+  font-size:18px;
+}
+
+.app-card{
+  margin:0 28px 24px;
+  padding:20px 24px;
+  display:grid;
+  grid-template-columns:140px 1fr auto;
+  align-items:center;
+  gap:20px;
+  border-radius:16px;
+  border:1px solid rgba(91,174,255,.30);
+  background:rgba(9,43,82,.88);
+}
+.phone{
+  width:112px;height:74px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.03));
+  font-size:52px;
+}
+.app-card h3{margin:0 0 6px;font-size:22px}
+.app-card p{margin:0;color:var(--muted);font-weight:700}
+.app-card strong{color:var(--gold2)}
+
+.bottom-cta{
+  margin:0 28px;
+  padding:0 0 34px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.age{
+  max-width:1180px;
+  margin:0 auto 12px;
+  padding:0 20px;
+  color:rgba(255,255,255,.54);
+  text-align:center;
+  font-size:12px;
+  line-height:1.6;
+}
+.footer{
+  padding:26px 20px 34px;
+  text-align:center;
+  color:rgba(255,255,255,.55);
+  font-size:13px;
+}
+
+/* mobile */
+@media(max-width:960px){
+  .nav{padding:0 18px;height:66px}
+  .nav-right{display:none}
+  .hero{padding:52px 18px 44px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .hero h1{font-size:44px}
+  .sports-line,.subline{font-size:20px}
+  .bonus-main{font-size:22px}
+  .bonus-main strong{font-size:42px}
+  .cta-row{justify-content:center}
+  .cards-section{padding:0 16px 30px;margin-top:0}
+  .sport-grid{grid-template-columns:1fr 1fr}
+  .feature-row,.promo,.app-card,.bottom-cta{grid-template-columns:1fr}
+  .promo{text-align:center;padding:24px 18px}
+  .gift{margin:0 auto}
+  .step-grid{grid-template-columns:1fr 1fr}
+  .app-card{text-align:center}
+  .phone{margin:0 auto}
+}
+@media(max-width:560px){
+  .logo{font-size:29px}
+  .hero h1{font-size:34px}
+  .btn{width:100%;min-width:0}
+  .sport-grid,.step-grid{grid-template-columns:1fr}
+  .sport-card{min-height:auto}
+  .features,.promo,.steps,.app-card,.bottom-cta{margin-left:16px;margin-right:16px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="nav">
+  <a class="logo" href="#"><span>1X</span><span>BET</span></a>
+  <nav class="nav-right">
+    <a href="https://t.me/baijiale8886669" target="_blank" rel="noopener" data-cn="🎁 福利信息" data-tw="🎁 福利資訊">🎁 福利資訊</a>
+    <a href="https://t.me/bc88855/2194" target="_blank" rel="noopener" data-cn="📱 APP说明" data-tw="📱 APP說明">📱 APP說明</a>
+    <a href="https://t.me/baijiale8886669" target="_blank" rel="noopener" data-cn="🌐 中文支持" data-tw="🌐 繁中支援">🌐 繁中支援</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1 data-cn="每日 1000+ 场热门体育赛事" data-tw="每日 1000+ 場熱門體育賽事">每日 1000+ 場熱門體育賽事</h1>
+      <div class="sports-line" data-cn="足球｜棒球｜篮球｜电竞" data-tw="足球｜棒球｜籃球｜電競">足球｜棒球｜籃球｜電競</div>
+      <div class="subline" data-cn="热门赛事信息实时更新" data-tw="熱門賽事資訊即時更新">熱門賽事資訊即時更新</div>
+
+      <div class="bonus-wrap">
+        <div class="bonus-pill" data-cn="🎁 新会员专属福利" data-tw="🎁 新會員專屬福利">🎁 新會員專屬福利</div>
+        <div class="bonus-main">
+          <span data-cn="首次存款最高奖励" data-tw="首次存款最高獎勵">首次存款最高獎勵</span>
+          <strong>130%</strong>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn gold" href="https://1xbettw.com" target="_blank" rel="noopener" data-cn="立即注册领取福利 ➜" data-tw="立即註冊領取福利 ➜">立即註冊領取福利 ➜</a>
+        <a class="btn blue" href="https://t.me/baijiale8886669" target="_blank" rel="noopener" data-cn="进入福利频道 ✈" data-tw="進入福利頻道 ✈">進入福利頻道 ✈</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="ball soccer">⚽</div>
+      <div class="ball baseball">⚾</div>
+      <div class="ball basket">🏀</div>
+      <div class="controller"></div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+<section class="cards-section">
+  <div class="sport-grid">
+    <div class="sport-card">
+      <div class="sport-icon">⚽</div>
+      <h3 data-cn="足球赛事" data-tw="足球賽事">足球賽事</h3>
+      <p data-cn="英超｜西甲｜欧冠｜世界杯" data-tw="英超｜西甲｜歐冠｜世界杯">英超｜西甲｜歐冠｜世界杯</p>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">⚾</div>
+      <h3 data-cn="棒球赛事" data-tw="棒球賽事">棒球賽事</h3>
+      <p data-cn="CPBL｜NPB｜MLB｜世界棒球经典赛" data-tw="CPBL｜NPB｜MLB｜世界棒球經典賽">CPBL｜NPB｜MLB｜世界棒球經典賽</p>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🏀</div>
+      <h3 data-cn="篮球赛事" data-tw="籃球賽事">籃球賽事</h3>
+      <p data-cn="NBA｜TPBL｜P+ League｜CBA" data-tw="NBA｜TPBL｜P+ League｜CBA">NBA｜TPBL｜P+ League｜CBA</p>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🎮</div>
+      <h3 data-cn="电竞赛事" data-tw="電競賽事">電競賽事</h3>
+      <p data-cn="LOL｜CS2｜DOTA2｜VALORANT" data-tw="LOL｜CS2｜DOTA2｜VALORANT">LOL｜CS2｜DOTA2｜VALORANT</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel features">
+  <h2 class="panel-title" data-cn="平台特色" data-tw="平台特色">平台特色</h2>
+  <div class="feature-row">
+    <div class="feature">
+      <div class="ico">📈</div>
+      <div>
+        <h4 data-cn="多种赔率选择" data-tw="多種賠率選擇">多種賠率選擇</h4>
+        <p data-cn="多样赛事盘口，选择更灵活" data-tw="多樣賽事盤口，選擇更靈活">多樣賽事盤口，選擇更靈活</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="ico">⏱️</div>
+      <div>
+        <h4 data-cn="热门赛事实时更新" data-tw="熱門賽事即時更新">熱門賽事即時更新</h4>
+        <p data-cn="赛事信息、活动内容持续更新" data-tw="賽事資訊、活動內容持續更新">賽事資訊、活動內容持續更新</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="ico">📱</div>
+      <div>
+        <h4 data-cn="移动端流畅体验" data-tw="行動裝置流暢體驗">行動裝置流暢體驗</h4>
+        <p data-cn="手机浏览清楚，操作更顺手" data-tw="手機瀏覽清楚，操作更順手">手機瀏覽清楚，操作更順手</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promo">
+  <div class="gift">🎁</div>
+  <div>
+    <h3 data-cn="新会员首存福利" data-tw="新會員首存福利">新會員首存福利</h3>
+    <p>
+      <span data-cn="首次存款最高奖励" data-tw="首次存款最高獎勵">首次存款最高獎勵</span>
+      <span style="color:var(--gold2)">130%</span>
+    </p>
+    <small data-cn="每日返水｜限时活动｜专属优惠" data-tw="每日返水｜限時活動｜專屬優惠">每日返水｜限時活動｜專屬優惠</small>
+  </div>
+  <a class="btn gold" href="https://1xbettw.com" target="_blank" rel="noopener" data-cn="立即领取 ➜" data-tw="立即領取 ➜">立即領取 ➜</a>
+</section>
+
+<section class="steps">
+  <h2 class="panel-title" data-cn="注册流程四步骤" data-tw="註冊流程四步驟">註冊流程四步驟</h2>
+  <div class="step-grid">
+    <div class="step">
+      <div class="num">1</div>
+      <h4 data-cn="注册账号" data-tw="註冊帳號">註冊帳號</h4>
+      <p data-cn="填写基本资料<br>快速建立账号" data-tw="填寫基本資料<br>快速建立帳號">填寫基本資料<br>快速建立帳號</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h4 data-cn="完成验证" data-tw="完成驗證">完成驗證</h4>
+      <p data-cn="验证手机或 Email<br>确保账号安全" data-tw="驗證手機或 Email<br>確保帳號安全">驗證手機或 Email<br>確保帳號安全</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h4 data-cn="领取优惠" data-tw="領取優惠">領取優惠</h4>
+      <p data-cn="完成验证后<br>领取新会员福利" data-tw="完成驗證後<br>領取新會員福利">完成驗證後<br>領取新會員福利</p>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <h4 data-cn="开始体验" data-tw="開始體驗">開始體驗</h4>
+      <p data-cn="完成存款后<br>查看热门赛事" data-tw="完成存款後<br>查看熱門賽事">完成存款後<br>查看熱門賽事</p>
+    </div>
+  </div>
+  <a class="tutorial" href="https://t.me/bc88855/2194" target="_blank" rel="noopener" data-cn="查看完整注册教学 ›" data-tw="查看完整註冊教學 ›">查看完整註冊教學 ›</a>
+</section>
+
+<section class="app-card">
+  <div class="phone">📱</div>
+  <div>
+    <h3 data-cn="iPhone 用户 APP 下载说明" data-tw="iPhone 用戶 APP 下載說明">iPhone 用戶 APP 下載說明</h3>
+    <p>
+      <span data-cn="如需 Apple ID 协助，请联系客服" data-tw="如需 Apple ID 協助，請聯繫客服">如需 Apple ID 協助，請聯繫客服</span>
+      <strong>@cz11888</strong>
+    </p>
+  </div>
+  <a class="btn blue" href="https://t.me/bc88855/2194" target="_blank" rel="noopener" data-cn="查看教学 ↗" data-tw="查看教學 ↗">查看教學 ↗</a>
+</section>
+
+<section class="bottom-cta">
+  <a class="btn gold" href="https://1xbettw.com" target="_blank" rel="noopener" data-cn="👤 立即注册" data-tw="👤 立即註冊">👤 立即註冊</a>
+  <a class="btn blue" href="https://t.me/baijiale8886669" target="_blank" rel="noopener" data-cn="✈ 福利频道" data-tw="✈ 福利頻道">✈ 福利頻道</a>
+  <a class="btn blue" href="https://t.me/bc88855/2194" target="_blank" rel="noopener" data-cn="📱 APP说明" data-tw="📱 APP說明">📱 APP說明</a>
+</section>
+
+</main>
+
+<div class="age" data-cn="请遵守所在地法律规范，未满 18 岁请勿参与。活动内容以平台实际公告为准。" data-tw="請遵守所在地法律規範，未滿 18 歲請勿參與。活動內容以平台實際公告為準。">請遵守所在地法律規範，未滿 18 歲請勿參與。活動內容以平台實際公告為準。</div>
+<footer class="footer">© 2026 1xBet Sports Landing Page</footer>
+
+</div>
+
+<script>
+function applyLang(lang){
+  document.querySelectorAll("[data-cn]").forEach(function(el){
+    el.innerHTML = el.getAttribute("data-" + lang);
+  });
+  document.documentElement.lang = lang === "cn" ? "zh-CN" : "zh-TW";
+}
+function detectLang(){
+  var langs = navigator.languages ? navigator.languages.join(",").toLowerCase() : (navigator.language || "").toLowerCase();
+  if(langs.includes("zh-cn") || langs.includes("zh-hans")){
+    applyLang("cn");
+  }else{
+    applyLang("tw");
+  }
+}
+detectLang();
+</script>
+</body>
+</html>
